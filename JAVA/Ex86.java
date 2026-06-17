@@ -1,0 +1,19 @@
+// Ch14 - 3.2 BufferedInputStream과 BufferedOutputStream
+import java.io.*;
+
+class Ex86 {
+    public static void main(String[] args) {
+        try {
+            FileOutputStream         fos = new FileOutputStream("123.txt");
+            BufferedOutputStream bos = new BufferedOutputStream(fos, 5);
+
+            for (int i = '1'; i <= '9'; i++) {
+                bos.write(i);
+            }
+            fos.close();
+            System.out.println("파일 생성 완료 (주의: bos가 아닌 fos만 닫음 -> 버퍼 미출력)");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
